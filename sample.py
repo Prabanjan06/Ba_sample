@@ -1,6 +1,7 @@
 # %%writefile sample.py
 import streamlit as st
 import pandas as pd
+from matplotlib.pyplot as plt
 
 # Read the CSV file
 df = pd.read_csv('sales.csv')
@@ -78,6 +79,6 @@ st.sidebar.title("This text written in the sidebar");
 st. sidebar.button("click me")
 st. sidebar.radio("Pick ur gender",["male","female"])
 
-from matplotlib import pyplot as plt
+
 df['Branch'].plot(kind='hist', bins=20, title='Branch')
 plt.gca().spines[['top', 'right',]].set_visible(False)
