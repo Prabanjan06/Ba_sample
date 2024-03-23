@@ -1,84 +1,116 @@
+# %%writefile sample.py
 import pandas as pd
-import plotly.express as px
-import streamlit as st
+import numpy as np
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 
-st.set_page_config(page_title="Sales Dashboard",
-                   page_icon=":bar_chart:", layout="wide")
+# import matplotlib.pyplot as plt
 
-df = pd.read_csv("/content/drive/MyDrive/supermarket_sales - Sheet1.csv")
+# pip install matplotlib
 
+# Read the CSV file
+df = pd.read_csv('sales.csv')
 
-st.sidebar.header("Filters")
-city = st.sidebar.multiselect(
-    "Pick city : ", options=df["City"].unique(), default=df["City"].unique())
-customer = st.sidebar.multiselect(
-    "Customer type : ", options=df["Customer_type"].unique(), default=df["Customer_type"].unique())
-product = st.sidebar.multiselect(
-    "Product line : ", options=df["Product_line"].unique(), default=df["Product_line"].unique())
-customerGender = st.sidebar.multiselect(
-    "Gender : ", options=df["Gender"].unique(), default=df["Gender"].unique())
+# Title
+st.title("AJPK Super Market")
 
-df_selection = df.query(
-    "City == @city & Customer_type == @customer & Product_line == @product & Gender == @customerGender")
+# import Image from pillow to open images
+from PIL import Image
+img = Image.open("asset/istockphoto-1412353022-2048x2048.jpg")
 
-# st.dataframe(df_selection)
-
-
-st.title(":bar_chart: Sales Dashboard ")
-st.markdown("##")
-
-total = round(df_selection["Total"].sum())
-avg_sale_transc = round(df_selection["Total"].mean())
-avg_rating = round(df_selection["Rating"].mean(), 1)
-starRating = ":star:" * int(round(avg_rating, 0))
-
-left, middle, right = st.columns(3)
-with left:
-    st.subheader("Total Sales : ")
-    st.subheader(f"US $ {total:,}")
-with middle:
-    st.subheader("Average Rating :")
-    st.subheader(f"{avg_rating} {starRating}")
-with right:
-    st.subheader("Average sales per transaction :")
-    st.subheader(f"US $ {avg_sale_transc}")
-
-st.markdown("---")
-
-# Sales by Product Graph
-sales_by_product = (df_selection.groupby(by=["Product_line"]).sum()["Total"])
-fig_product_sale = px.bar(sales_by_product, x="Total", y=sales_by_product.index, orientation="h",
-                          template="plotly_white", title="<b>Sales by Product<b>")
-
-#Payment Type
-payment_method_type = df_selection.groupby(by=["Payment"]).sum()["Total"]
-fig_payment = px.bar(payment_method_type, x="Total", y=payment_method_type.index, orientation="h",
-                     template="plotly_white", title="<b>Payment Type<b>")
-
-
-#Gender Pie Chart
-
-dataFrame = df["Gender"].value_counts()
-random_x = [dataFrame[0],dataFrame[1]]
-names = ['Female','Male']
-fig = px.pie(values=random_x,names = names,title="Overall Gender ratio")
+# display image using streamlit
+# width is used to set the width of an image
+st.image(img, width=800)
 
 
 
-st.plotly_chart(fig_product_sale)
-st.markdown("##")
-st.plotly_chart(fig_payment)
-st.markdown("##")
-st.plotly_chart(fig)
+# Header
+st.header("Super Market Sales Report")
 
-# Hiding St contents
+st.write("DataFrame")
+st.write(df.describe())
 
-hide_st_style = """
-<style>
-#MainMenu{visibility:hidden;}
-footer{visibility:hidden;}
-header{visibility:hidden;}
-</style>
-"""
+# sns.heatmap(data.corr(),annot=True)
+# plt.show()
 
-st.markdown(hide_st_style,unsafe_allow_html=True)
+def plot_gender_pie_chart(data):
+    # Count the number of men and women
+    gender_counts = data['Gender'].value_counts()
+
+    # Plotting the pie chart
+    st.write('### Gender Distribution')
+    fig, ax = plt.subplots()
+    ax.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle=140)
+    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    st.pyplot(fig)
+
+def main():
+    st.title('Gender Distribution Analysis')
+    plot_gender_pie_chart(df)
+
+if __name__ == "__main__":
+    main()
+
+
+# Subheader
+# st.subheader("")
+
+# Text
+# st.text("Welcome you ALL!!!")
+
+
+# Markdown
+# st.markdown("### This is a markdown")
+
+# success
+st.success("Success")
+
+# success
+st.info("Information")
+
+# success
+st.warning("Warning")
+
+# success
+st.error("Error")
+
+# Exception - This has been added later
+exp = ZeroDivisionError("Trying to divide by Zero")
+st.exception(exp)
+
+# Display Images
+
+
+
+
+# checkbox
+# check if the checkbox is checked
+# title of the checkbox is 'Show/Hide'
+if st.checkbox("Show/Hide"):
+
+	# display the text if the checkbox returns True value
+	st.text("Showing the widget")
+
+
+# radio button
+# first argument is the title of the radio button
+# second argument is the options for the radio button
+status = st.radio("Select Gender: ", ('Male', 'Female'))
+
+# conditional statement to print
+# Male if male is selected else print female
+# show the result using the success function
+if (status == 'Male'):
+	st.success("Male")
+else:
+	st.success("Female")
+
+
+
+st.sidebar.title("This text written in the sidebar");
+st. sidebar.button("click me")
+st. sidebar.radio("Pick ur gender",["male","female"])
+
+
+# df['Branch'].plot(kind='hist', bins=20, title='Branch')
+# plt.gca().spines[['top', 'right',]].set_visible(False)
