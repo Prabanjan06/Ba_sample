@@ -1,7 +1,16 @@
 %%writefile sample.py
 import streamlit as st
+
 # Title
-st.title("Guide for Streamlit !!!")
+st.title("AJPK Super Market")
+
+# import Image from pillow to open images
+from PIL import Image
+img = Image.open("/content/sample_data/logo (2).png")
+
+# display image using streamlit
+# width is used to set the width of an image
+st.image(img, width=200)
 
 # Header
 st.header("Certificate course on Business Analytics With Python")
@@ -34,13 +43,7 @@ st.exception(exp)
 
 # Display Images
 
-# import Image from pillow to open images
-from PIL import Image
-img = Image.open("/content/sample_data/logo (2).png")
 
-# display image using streamlit
-# width is used to set the width of an image
-st.image(img, width=200)
 
 
 # checkbox
