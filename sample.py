@@ -1,6 +1,7 @@
 # %%writefile sample.py
 import pandas as pd
 import numpy as np
+import streamlit as st
 # import matplotlib.pyplot as plt  # Uncomment this line
 
 # Read the CSV file
