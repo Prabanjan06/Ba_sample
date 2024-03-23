@@ -1,4 +1,4 @@
-%%writefile sample.py
+# %%writefile sample.py
 import streamlit as st
 
 st.title('Welcome')
