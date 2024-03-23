@@ -5,6 +5,8 @@ import pandas as pd
 # Read the CSV file
 df = pd.read_csv('sales.csv')
 
+df.describe()
+
 
 # Title
 st.title("AJPK Super Market")
