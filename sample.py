@@ -25,7 +25,7 @@ st.image(img, width=800)
 st.header("Super Market Sales Report")
 
 st.write("DataFrame")
-st.write(df.describe()
+st.write(df.describe())
 
 # Subheader
 # st.subheader("")
