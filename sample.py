@@ -10,16 +10,16 @@ img = Image.open("asset/istockphoto-1412353022-2048x2048.jpg")
 
 # display image using streamlit
 # width is used to set the width of an image
-st.image(img, width=200)
+st.image(img, width=800)
 
 # Header
-st.header("Certificate course on Business Analytics With Python")
+st.header("Super Market Sales Report")
 
 # Subheader
-st.subheader("offered by Dept of AMCS, TCE, Madurai")
+# st.subheader("")
 
 # Text
-st.text("Welcome you ALL!!!")
+# st.text("Welcome you ALL!!!")
 
 
 # Markdown
