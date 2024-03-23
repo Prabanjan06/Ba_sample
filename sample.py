@@ -6,7 +6,7 @@ st.title("AJPK Super Market")
 
 # import Image from pillow to open images
 from PIL import Image
-img = Image.open("/content/sample_data/logo (2).png")
+img = Image.open("asset/istockphoto-1412353022-2048x2048.jpg")
 
 # display image using streamlit
 # width is used to set the width of an image
