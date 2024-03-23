@@ -1,7 +1,7 @@
 # %%writefile sample.py
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt  # Uncomment this line
+# import matplotlib.pyplot as plt  # Uncomment this line
 
 # Read the CSV file
 df = pd.read_csv('sales.csv')
