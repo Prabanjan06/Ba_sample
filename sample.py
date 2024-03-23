@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 
 # Read the CSV file
-df = pd.read_csv('your_file.csv')
+df = pd.read_csv('sales.csv')
 
 
 # Title
