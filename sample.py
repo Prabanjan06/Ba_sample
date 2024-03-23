@@ -1,6 +1,8 @@
 # %%writefile sample.py
 import streamlit as st
 import pandas as pd
+
+
 # import matplotlib.pyplot as plt
 
 # pip install matplotlib
@@ -21,6 +23,9 @@ st.image(img, width=800)
 
 # Header
 st.header("Super Market Sales Report")
+
+st.write("DataFrame")
+st.write(df.describe()
 
 # Subheader
 # st.subheader("")
