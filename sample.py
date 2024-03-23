@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-pip install matplotlib
+# pip install matplotlib
 
 # Read the CSV file
 df = pd.read_csv('sales.csv')
@@ -82,5 +82,5 @@ st. sidebar.button("click me")
 st. sidebar.radio("Pick ur gender",["male","female"])
 
 
-df['Branch'].plot(kind='hist', bins=20, title='Branch')
-plt.gca().spines[['top', 'right',]].set_visible(False)
+# df['Branch'].plot(kind='hist', bins=20, title='Branch')
+# plt.gca().spines[['top', 'right',]].set_visible(False)
