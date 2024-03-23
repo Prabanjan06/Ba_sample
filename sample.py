@@ -1,5 +1,10 @@
 # %%writefile sample.py
 import streamlit as st
+import pandas as pd
+
+# Read the CSV file
+df = pd.read_csv('your_file.csv')
+
 
 # Title
 st.title("AJPK Super Market")
@@ -73,4 +78,5 @@ else:
 st.sidebar.title("This text written in the sidebar");
 st. sidebar.button("click me")
 st. sidebar.radio("Pick ur gender",["male","female"])
+
 
