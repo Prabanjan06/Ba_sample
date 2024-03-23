@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+pip install matplotlib
+
 # Read the CSV file
 df = pd.read_csv('sales.csv')
 
