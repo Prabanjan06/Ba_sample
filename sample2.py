@@ -1,4 +1,4 @@
-%%writefile app1.py
+%%writefile appli1.py
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -6,7 +6,7 @@ import streamlit as st
 st.set_page_config(page_title="Sales Dashboard",
                    page_icon=":bar_chart:", layout="wide")
 
-df = pd.read_csv("/content/drive/MyDrive/mini project TCE/supermarket_sales - Sheet1 (1).csv")
+df = pd.read_csv("/content/drive/MyDrive/supermarket_sales - Sheet1.csv")
 
 
 st.sidebar.header("Filters")
