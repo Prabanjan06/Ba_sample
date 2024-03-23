@@ -1,7 +1,7 @@
 # %%writefile sample.py
 import streamlit as st
 import pandas as pd
-from matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 # Read the CSV file
 df = pd.read_csv('sales.csv')
