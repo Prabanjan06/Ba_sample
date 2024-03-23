@@ -1,7 +1,7 @@
 # %%writefile sample.py
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import seaborn as sns
 
 # import matplotlib.pyplot as plt
@@ -30,8 +30,26 @@ st.header("Super Market Sales Report")
 st.write("DataFrame")
 st.write(df.describe())
 
-sns.heatmap(data.corr(),annot=True)
-plt.show()
+# sns.heatmap(data.corr(),annot=True)
+# plt.show()
+
+def plot_gender_pie_chart(data):
+    # Count the number of men and women
+    gender_counts = data['Gender'].value_counts()
+
+    # Plotting the pie chart
+    st.write('### Gender Distribution')
+    fig, ax = plt.subplots()
+    ax.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle=140)
+    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    st.pyplot(fig)
+
+def main():
+    st.title('Gender Distribution Analysis')
+    plot_gender_pie_chart(df)
+
+if __name__ == "__main__":
+    main()
 
 
 # Subheader
