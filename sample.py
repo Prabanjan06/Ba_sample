@@ -1,7 +1,8 @@
 # %%writefile sample.py
-import streamlit as st
 import pandas as pd
-
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # import matplotlib.pyplot as plt
 
@@ -21,11 +22,17 @@ img = Image.open("asset/istockphoto-1412353022-2048x2048.jpg")
 # width is used to set the width of an image
 st.image(img, width=800)
 
+
+
 # Header
 st.header("Super Market Sales Report")
 
 st.write("DataFrame")
 st.write(df.describe())
+
+sns.heatmap(data.corr(),annot=True)
+plt.show()
+
 
 # Subheader
 # st.subheader("")
